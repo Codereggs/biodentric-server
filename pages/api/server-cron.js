@@ -6,7 +6,9 @@ schedule("0 0 * * 1", () => {
   fetchReviews();
 }); */
 
-export const cron = () => {
-  fetchReviews();
-  res.status(200).end("Hello Cron!");
+export const cron = async (req, res) => {
+  if (req.method === "GET") {
+    await fetchReviews();
+    res.status(200).end("Hello Cron!");
+  }
 };
