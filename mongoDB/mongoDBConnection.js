@@ -1,6 +1,9 @@
 import { connect } from "mongoose";
+import "dotenv/config";
 
-connect("mongodb://localhost:27017/reviewsDB", {
+const mongoDBKey = process.env.MONGO_KEY;
+
+export const connectMongoDB = connect(mongoDBKey, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

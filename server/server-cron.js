@@ -1,7 +1,16 @@
 import { schedule } from "node-cron";
+import { fetchReviews } from "./getDataFromGoogle.js";
+import { connectMongoDB } from "../mongoDB/mongoDBConnection.js";
 
-// Ejecutar todos los lunes a las 00:00 (una vez por semana)
+/*
+//Execute all mondays at 00:00 (one time per week)
 schedule("0 0 * * 1", () => {
-  console.log("Iniciando tarea semanal para obtener reseñas");
+  fetchReviews();
+});
+ */
+connectMongoDB;
+
+schedule("*/10 * * * * *", () => {
+  console.log("Iniciando tarea cada 30 segundos para obtener reseñas");
   fetchReviews();
 });
