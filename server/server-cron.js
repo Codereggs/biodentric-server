@@ -1,5 +1,5 @@
 import { schedule } from "node-cron";
-import { fetchReviews } from "./getDataFromGoogle.js";
+import { fetchReviews } from "../pages/api/fetchReviews.js";
 import { connectMongoDB } from "../mongoDB/mongoDBConnection.js";
 
 /*
@@ -8,7 +8,6 @@ schedule("0 0 * * 1", () => {
   fetchReviews();
 });
  */
-connectMongoDB;
 
 schedule("*/10 * * * * *", () => {
   console.log("Iniciando tarea cada 30 segundos para obtener reseñas");

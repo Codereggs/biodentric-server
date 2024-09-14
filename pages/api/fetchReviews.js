@@ -1,6 +1,10 @@
 import { default as axios } from "axios";
 import "dotenv/config";
-import { Review } from "../mongoDB/mongoDBSchema.js";
+import { Review } from "../../mongoDB/mongoDBSchema.js";
+import {
+  connectMongoDB,
+  disconnectMongoDB,
+} from "../../mongoDB/mongoDBConnection.js";
 
 const apiKey = process.env.GOOGLE_API_KEY; // Reemplaza con tu API key
 const placeId = process.env.PLACE_ID; // ID de la empresa
@@ -11,6 +15,7 @@ export async function fetchReviews() {
   const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`;
 
   try {
+    await connectMongoDB();
     const response = await axios.get(url);
     const reviews = response.data.result.reviews;
     // Guardar las reseñas en MongoDB
@@ -25,7 +30,7 @@ export async function fetchReviews() {
       });
       await newReview.save();
     }
-
+    disconnectMongoDB();
     console.log("Reviews saved");
   } catch (error) {
     console.error("Something went wrong.", error);
