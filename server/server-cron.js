@@ -1,21 +1,21 @@
-import express from "express";
-import http from "http";
 import { schedule } from "node-cron";
 import { fetchReviews } from "../pages/api/fetchReviews.js";
 import getReviews from "../pages/api/getReviews.js";
+import express from "express";
+import http from "http";
 
 // Init Express
 const app = express();
 
-/* //Execute all mondays at 00:00 (one time per week)
+//Execute all mondays at 00:00 (one time per week)
 schedule("0 0 * * 1", () => {
   fetchReviews();
-}); */
-
-schedule("*/10 * * * * *", () => {
-  console.log("Iniciando tarea cada 30 segundos para obtener reseñas");
-  fetchReviews();
 });
+
+//schedule("*/10 * * * * *", () => {
+//console.log("Iniciando tarea cada 30 segundos para obtener reseñas");
+//fetchReviews();
+//});
 
 // GET Endpoint
 app.get("/api/reviews", async (req, res) => {
