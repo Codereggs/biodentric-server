@@ -1,11 +1,4 @@
-import winston from "winston";
 import { fetchReviews } from "./fetchReviews.js";
-
-const logger = winston.createLogger({
-  level: "info",
-  format: winston.format.simple(),
-  transports: [new winston.transports.Console()],
-});
 
 /* //Execute all mondays at 00:00 (one time per week)
 schedule("0 0 * * 1", () => {
@@ -14,7 +7,7 @@ schedule("0 0 * * 1", () => {
 }); */
 
 export default function handler(req, res) {
-  logger.info("Init task to find reviews");
-  fetchReviews();
+  /*   logger.info("Init task to find reviews");
+  fetchReviews(); */
   res.status(200).end("Hello Cron!");
 }
