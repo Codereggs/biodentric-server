@@ -13,5 +13,8 @@ schedule("0 0 * * 1", () => {
   fetchReviews();
 }); */
 
-logger.info("Init task to find reviews");
-fetchReviews();
+export default function handler(req, res) {
+  logger.info("Init task to find reviews");
+  fetchReviews();
+  res.status(200).end("Hello Cron!");
+}
