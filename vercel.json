@@ -14,7 +14,7 @@
   ],
   "crons": [
     {
-      "path": "/server/server-cron.js",
+      "path": "/pages/api/server-cron",
       "schedule": "*/10 * * * * *"
     }
   ]
