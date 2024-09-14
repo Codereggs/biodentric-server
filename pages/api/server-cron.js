@@ -1,6 +1,5 @@
-import { schedule } from "node-cron";
 import winston from "winston";
-import { fetchReviews } from "../pages/api/fetchReviews.js";
+import { fetchReviews } from "./fetchReviews.js";
 
 const logger = winston.createLogger({
   level: "info",
