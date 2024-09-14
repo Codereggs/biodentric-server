@@ -17,6 +17,8 @@ app.get("/api/reviews", async (req, res) => {
   }
 });
 
+app.use("/api/cron", cron);
+
 // Init server
 const PORT = process.env.PORT || 443;
 
