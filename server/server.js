@@ -1,6 +1,7 @@
+import express from "express";
 import http from "http";
 import getReviews from "../pages/api/getReviews.js";
-import express from "express";
+import { cron } from "../pages/api/server-cron.js";
 
 // Init Express
 const app = express();

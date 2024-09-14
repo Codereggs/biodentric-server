@@ -6,7 +6,7 @@ schedule("0 0 * * 1", () => {
   fetchReviews();
 }); */
 
-export default function handler(req, res) {
+export const cron = () => {
   fetchReviews();
   res.status(200).end("Hello Cron!");
-}
+};
