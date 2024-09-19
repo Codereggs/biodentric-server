@@ -3,6 +3,7 @@ import http from "http";
 import getReviews from "../pages/api/getReviews.js";
 import { cron } from "../pages/api/server-cron.js";
 import cors from "cors";
+import helmet from "helmet";
 
 // Init Express
 const app = express();
