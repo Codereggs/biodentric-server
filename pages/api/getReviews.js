@@ -4,7 +4,7 @@ import {
 } from "../../mongoDB/mongoDBConnection.js";
 import { Review } from "../../mongoDB/mongoDBSchema.js";
 
-export default async function getReviews(req, res) {
+export default async function getReviews() {
   try {
     await connectMongoDB();
     // Obtener todas las reviews de MongoDB
