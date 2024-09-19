@@ -16,6 +16,10 @@ export async function fetchReviews() {
 
   try {
     await connectMongoDB();
+
+    //Borrar las reseñas antes de insertar las nuevas
+    await Review.deleteMany({});
+
     const response = await axios.get(url);
     const reviews = response.data.result.reviews;
     // Guardar las reseñas en MongoDB
