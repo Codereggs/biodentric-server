@@ -17,37 +17,5 @@
       "path": "/api/cron",
       "schedule": "0 0 * * *"
     }
-  ],
-  "rule": {
-    "type": "request",
-    "action": "block",
-    "conditions": [
-      {
-        "type": "query",
-        "value": [
-          "SELECT",
-          "INSERT",
-          "DELETE",
-          "UPDATE",
-          "DROP",
-          "--",
-          ";",
-          "'"
-        ]
-      },
-      {
-        "type": "body",
-        "value": [
-          "SELECT",
-          "INSERT",
-          "DELETE",
-          "UPDATE",
-          "DROP",
-          "--",
-          ";",
-          "'"
-        ]
-      }
-    ]
-  }
+  ]
 }
