@@ -9,7 +9,8 @@ import helmet from "helmet";
 const app = express();
 
 //Set cors
-const corsOptions = { origin: "https://biodentric.cl" };
+//https://biodentric.cl
+const corsOptions = { origin: "*" };
 app.use(cors(corsOptions));
 
 //Set helmet
