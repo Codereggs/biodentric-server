@@ -12,7 +12,7 @@ const placeId = process.env.PLACE_ID; // ID de la empresa
 export async function fetchReviews() {
   if (!apiKey || !placeId) return console.error("Something went wrong.");
 
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`;
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}&language=es`;
 
   try {
     await connectMongoDB();
